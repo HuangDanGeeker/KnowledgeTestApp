@@ -22,7 +22,8 @@
 
     <Button
         android:id="@+id/back_to_mainActivity_btn"
-        android:text="get back "
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content" />
+        android:layout_height="wrap_content"
+        android:background="@android:color/holo_orange_dark"
+        android:text="get back " />
 </LinearLayout>
