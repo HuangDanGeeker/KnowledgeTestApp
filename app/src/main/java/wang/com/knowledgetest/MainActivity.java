@@ -3,17 +3,23 @@ package wang.com.knowledgetest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-
+//
+//    private QuestionItem[] questions ={
+//                                    new QuestionItem(this.getString(R.string.question1), Boolean.valueOf(this.getString(R.string.answer1))),
+//                                    new QuestionItem(this.getString(R.string.question2), Boolean.valueOf(this.getString(R.string.answer2))),
+//                                    new QuestionItem(this.getString(R.string.question3), Boolean.valueOf(this.getString(R.string.answer3)))
+//                                    };
     private QuestionItem[] questions ={
-                                    new QuestionItem("China's topic is located at BeiJing", true),
-                                    new QuestionItem("ChangSha is the topic of Hunan provience", true),
-                                    new QuestionItem("F = m * m", false)
+                                    new QuestionItem("s", true),
+                                    new QuestionItem("s", true),
+                                    new QuestionItem("s", true),
                                     };
     private int currentIndex = 0;
     @Override
@@ -25,6 +31,7 @@ public class MainActivity extends AppCompatActivity {
         Button mFalseBtn = (Button)findViewById(R.id.false_answerBtn);
         Button mCheatBtn = (Button)findViewById(R.id.cheatBtn);
 
+        Log.w("Warning", "HEre");
         final TextView mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
         mQuestionTextView.setText(questions[0].getQuestion());
 
