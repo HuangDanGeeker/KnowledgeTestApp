@@ -1,5 +1,6 @@
 package wang.com.knowledgetest;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -22,6 +23,8 @@ public class MainActivity extends AppCompatActivity {
 
         Button mTrueBtn = (Button)findViewById(R.id.true_answerBtn);
         Button mFalseBtn = (Button)findViewById(R.id.false_answerBtn);
+        Button mCheatBtn = (Button)findViewById(R.id.cheatBtn);
+
         final TextView mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
         mQuestionTextView.setText(questions[0].getQuestion());
 
@@ -47,6 +50,18 @@ public class MainActivity extends AppCompatActivity {
                 }
                 currentIndex = (currentIndex + 1 ) % 3;
                 mQuestionTextView.setText(questions[currentIndex].getQuestion());
+            }
+        });
+
+        mCheatBtn.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getBaseContext(), CheatActivity.class);
+                Bundle bundle = new Bundle();
+                bundle.putString("question", questions[currentIndex].getQuestion());
+                bundle.putBoolean("answer", questions[currentIndex].getAnswer());
+                intent.putExtras(bundle);
+                startActivity(intent);
             }
         });
     }

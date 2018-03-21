@@ -16,6 +16,7 @@
         android:id="@+id/cheatBtn"
         android:text="Cheat"
         android:layout_gravity="center"
+        android:layout_marginBottom="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
@@ -31,7 +32,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="True"
-            android:layout_marginRight="5dp"
+            android:layout_marginRight="8dp"
             />
 
         <Button
@@ -39,7 +40,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="False"
-            android:layout_marginLeft="5dp"
+            android:layout_marginLeft="8dp"
             />
     </LinearLayout>
 
