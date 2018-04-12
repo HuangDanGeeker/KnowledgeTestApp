@@ -15,16 +15,8 @@ public class MainActivity extends AppCompatActivity {
                                     new QuestionItem(R.string.question2, true),
                                     new QuestionItem(R.string.question3, false)
                                     };
-//    private QuestionItem[] questions ={
-//                                    new QuestionItem(R.string.question1, Boolean.valueOf(this.getString(R.string.answer1))),
-//                                    new QuestionItem(R.string.question2, Boolean.valueOf(this.getString(R.string.answer2))),
-//                                    new QuestionItem(R.string.question3, Boolean.valueOf(this.getString(R.string.answer3)))
-//                                    };
-//    private QuestionItem[] questions ={
-//                                    new QuestionItem("s", true),
-//                                    new QuestionItem("s", true),
-//                                    new QuestionItem("s", true),
-//                                    };
+    // REUQEST CODE
+    private static final int CHECK_FOR_ANSWER = 1;
     private int currentIndex = 0;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -42,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if(questions[currentIndex].getAnswer()){
-                    Toast.makeText(getBaseContext(), "Right Answer", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
                 }else{
                     Toast.makeText(getBaseContext(), "False Answer", Toast.LENGTH_SHORT).show();
                 }
@@ -56,7 +48,7 @@ public class MainActivity extends AppCompatActivity {
                 if(questions[currentIndex].getAnswer()){
                     Toast.makeText(getBaseContext(), "False Answer", Toast.LENGTH_SHORT).show();
                 }else{
-                    Toast.makeText(getBaseContext(), "Right Answer", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getBaseContext(), "Correct Answer", Toast.LENGTH_SHORT).show();
                 }
                 currentIndex = (currentIndex + 1 ) % 3;
                 mQuestionTextView.setText(questions[currentIndex].getQuestion());
@@ -71,8 +63,20 @@ public class MainActivity extends AppCompatActivity {
                 bundle.putInt("question", questions[currentIndex].getQuestion());
                 bundle.putBoolean("answer", questions[currentIndex].getAnswer());
                 intent.putExtras(bundle);
-                startActivity(intent);
+                startActivityForResult(intent, CHECK_FOR_ANSWER);
             }
         });
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        switch (requestCode){
+            case CHECK_FOR_ANSWER:
+                if(resultCode == RESULT_OK && data.getBooleanExtra("isCheat", false)){
+                    Toast.makeText(getBaseContext(), "The answer is " + data.getStringExtra("answer"), Toast.LENGTH_SHORT).show();
+                }
+                break;
+            default: break;
+        }
     }
 }

@@ -5,7 +5,7 @@ package wang.com.knowledgetest;
  */
 
 public class QuestionItem {
-    public QuestionItem(int question, Boolean answer){
+    public QuestionItem(int question, boolean answer){
         this.question = question;
         this.answer = answer;
     }

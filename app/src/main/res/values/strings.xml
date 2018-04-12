@@ -4,12 +4,15 @@
     <string name="main_falseBtn">FALSE</string>
     <string name="main_cheatBtn">CHEAT</string>
     <string name="cheat_goBackBtn">GET BACK</string>
+    <string name="cheat_Btn">SHow Ansear</string>
 
+    <!--mainActivity-->
     <string name="question1">Chinese topic is located at BeiJing</string>
     <string name="answer1">true</string>
     <string name="question2">ChangSha is the topic of Hunan provience</string>
     <string name="answer2">1</string>
     <string name="question3">F = m * m</string>
     <string name="answer3">0</string>
-
+    <!--cheatActivity-->
+    <string name="confirmText">Are you sure to cheat on this question?</string>
 </resources>
