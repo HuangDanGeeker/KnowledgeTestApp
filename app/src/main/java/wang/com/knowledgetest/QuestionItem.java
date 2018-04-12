@@ -5,18 +5,18 @@ package wang.com.knowledgetest;
  */
 
 public class QuestionItem {
-    public QuestionItem(String question, Boolean answer){
+    public QuestionItem(int question, Boolean answer){
         this.question = question;
         this.answer = answer;
     }
-    public String question;
+    public int question;
     public boolean answer;
 
-    public String getQuestion() {
+    public int getQuestion() {
         return question;
     }
 
-    public void setQuestion(String question) {
+    public void setQuestion(int question) {
         this.question = question;
     }
 

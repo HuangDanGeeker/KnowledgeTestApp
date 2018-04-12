@@ -27,14 +27,14 @@
         android:layout_height="wrap_content">
         <Button
             android:id="@+id/true_answerBtn"
-            android:text="TRUE"
+            android:text="@string/main_trueBtn"
             android:background="@android:color/holo_green_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginRight="10dp"/>
         <Button
             android:id="@+id/false_answerBtn"
-            android:text="TRUE"
+            android:text="@string/main_falseBtn"
             android:background="@android:color/holo_red_dark"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

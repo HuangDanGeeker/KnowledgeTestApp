@@ -34,7 +34,7 @@
             android:layout_height="wrap_content"
             android:layout_marginRight="8dp"
             android:background="@android:color/holo_green_dark"
-            android:text="@string/main_truBtn"
+            android:text="@string/main_trueBtn"
             android:textColor="@android:color/black" />
 
         <Button
