@@ -3,6 +3,7 @@ package wang.com.knowledgetest;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     // REUQEST CODE
     private static final int CHECK_FOR_ANSWER = 1;
     private int currentIndex = 0;
+
+    private TextView mQuestionTextView;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -27,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         Button mFalseBtn = (Button)findViewById(R.id.false_answerBtn);
         Button mCheatBtn = (Button)findViewById(R.id.cheatBtn);
 
-        final TextView mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
+        mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
         mQuestionTextView.setText(questions[0].getQuestion());
 
         mTrueBtn.setOnClickListener(new View.OnClickListener(){
@@ -78,5 +81,31 @@ public class MainActivity extends AppCompatActivity {
                 break;
             default: break;
         }
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+
+        // orientential position
+        float x1 = 0, x2 = 0;
+        // vertical position
+        float y1 = 0, y2 = 0;
+        if(event.getAction() == MotionEvent.ACTION_DOWN){
+            x1 = event.getX();
+        }else if(event.getAction() == MotionEvent.ACTION_UP){
+            x2 = event.getX();
+
+            if(x1 > x2){
+                currentIndex = (currentIndex - 1 ) % 3;
+                mQuestionTextView.setText(questions[currentIndex].getQuestion());
+
+            }else if(x1 < x2){
+                currentIndex = (currentIndex + 1 ) % 3;
+                mQuestionTextView.setText(questions[currentIndex].getQuestion());
+            }
+        }
+
+
+        return super.onTouchEvent(event);
     }
 }
