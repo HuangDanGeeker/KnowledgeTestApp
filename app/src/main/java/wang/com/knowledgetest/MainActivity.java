@@ -30,8 +30,13 @@ public class MainActivity extends AppCompatActivity {
         Button mFalseBtn = (Button)findViewById(R.id.false_answerBtn);
         Button mCheatBtn = (Button)findViewById(R.id.cheatBtn);
 
+        //TODO
+        if(savedInstanceState != null){
+            currentIndex = savedInstanceState.getInt("index", 0);
+        }
+
         mQuestionTextView = (TextView) findViewById(R.id.question_text_view);
-        mQuestionTextView.setText(questions[0].getQuestion());
+        mQuestionTextView.setText(questions[currentIndex].getQuestion());
 
         mTrueBtn.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -107,5 +112,16 @@ public class MainActivity extends AppCompatActivity {
 
 
         return super.onTouchEvent(event);
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putInt("index", currentIndex);
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
     }
 }
